@@ -1,0 +1,75 @@
+#!name=广告拦截合集-重写
+#!desc=(R)针对部分APP和小程序广告进行拦截，某些APP要清除缓存或者重新安装拦截广告才会生效！
+#!author=fmz200
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
+#!homepage=https://github.com/fmz200/wool_scripts
+#!raw-url=https://github.com/fmz200/wool_scripts/raw/main/QuantumultX/rewrite/chongxie.txt
+#!tg-group=https://t.me/lanjieguanggao
+#!date=2024-05-18 09:20:00
+#!support=支持约511款APP/小程序
+#!remark=下方的所有规则都标注了对应的hostname，可能存在错误或者遗漏，欢迎反馈。对于无法/可选MITM的hostname都特别做了“如开启可自行添加主机名”提示，如果提示后面没有标注主机名则包含所有主机名，否则只包含提示语后面的主机名。
+
+
+[URL Rewrite]
+# > 饿了么
+^https?:\/\/elemecdn\.com\/.+\/sitemap - reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject
+^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_1\d{3},h_2\d{3}\/format,webp\/ - reject
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_6\d{2},h_8\d{2}\/format,webp\/ - reject
+^https?:\/\/cube\.elemecdn\.com\/[\w\/]+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{3},h_\d{4}\/format,webp\/ - reject
+^https?:\/\/cube\.elemecdn\.com\/\w\/\w{2}\/\w+mp4\.mp4\? - reject
+^https?:\/\/www1\.elecfans\.com\/www\/delivery\/ - reject
+^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) - reject
+# > 航旅纵横
+^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
+# > 盒马
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject
+[Map Local]
+# > 彩云天气
+^https?:\/\/api\.caiyunapp\.com\/v1\/activity data-type=text data="{}" status-code=200
+^https?:\/\/wrapper\.cyapi\.cn\/v1\/activity\? data-type=file data="https://raw.githubusercontent.com/Keywos/rule/main/mocks/caiyun.json"
+# > 大麦
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome data-type=text data=" " status-code=200
+# > 大众点评
+^https?:\/\/img\.meituan\.net\/dpmobile\/.+93241\.png data-type=text data="{}" status-code=200
+^https?:\/\/img\.meituan\.net\/dpmobile\/.*.(gif|jpg) data-type=text data=" " status-code=200
+# > 动卡空间
+^https?:\/\/ump\.sz\.creditcard\.ecitic\.com\/citiccard\/cm-ump\/ump-gateway\/ump-net-app\/ump-net-app\/adv data-type=text data="{}" status-code=200
+^https?:\/\/m\.creditcard\.ecitic\.com\/citiccard\/mbk\/appspace-getway\/getWay\/dkkj-system-web\/system\/v\d\/init-config data-type=text data=" " status-code=200
+# > 钉钉
+^https?:\/\/(gw|img)\.alicdn\.com\/imgextra\/.+\/[\w!]+\d+-\d+-.+-\b([8-9]\d{2,}|[1-9]\d{3,})\b-\b([5-9]\d{2,}|[1-9]\d{3,})\b data-type=text data="{}" status-code=200
+# > 滴滴出行
+^https?:\/\/hd\.xiaojukeji\.com\/d data-type=text data="{}" status-code=200
+# > 饿了么
+^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 data-type=tiny-gif status-code=200
+# > 飞猪 + 阿里巴巴
+^http?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch data-type=text data="{}" status-code=200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) data-type=text data="{}" status-code=200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/1\.0\?type=originaljson data-type=tiny-gif status-code=200
+# > 盒马
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.sg\.querysinglescene data-type=text data="{}" status-code=200
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querysinglepage data-type=text data=" " status-code=200
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.fc\.recommend\.feedscommondservice data-type=text data="{}" status-code=200
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querytabfeedstream data-type=text data=" " status-code=200
+[Script]
+# > 滴滴出行
+Didichuxing = type=http-response, pattern=^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/freight\.xiaojukeji\.com\/gateway, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/xpget, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/other\/fast, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/conf\.diditaxi\.com\.cn\/homepage\/v\d\/core, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/common\.diditaxi\.com\.cn\/common\/v\d\/usercenter\/me, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/daijia\.kuaidadi\.com\/gateway, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+Didichuxing = type=http-response, pattern=^https?:\/\/daijia\.kuaidadi\.com:443\/gateway, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
+didi = type=http-response, pattern=^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didi.js, requires-body=true, max-size=-1, timeout=60
+# > Flightradar24
+Flightradar24 = type=http-response, pattern=^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js, requires-body=true, max-size=-1, timeout=60
+# > 航旅纵横
+Umetrip_remove_ads = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Umetrip/Umetrip_remove_ads.js, requires-body=true, max-size=-1, timeout=60
+# > 盒马
+freshippo = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(index|my)page, script-path=https://raw.githubusercontent.com/zirawell/Ad-Cleaner/main/Collection/js/freshippo.js, requires-body=true, max-size=-1, timeout=60
+[MITM]
+hostname = %APPEND% acs.m.taobao.com,wrapper.cyapi.cn, api.caiyunapp.com,img.meituan.net,ump.sz.creditcard.ecitic.com,gw.alicdn.com, img.alicdn.com,res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn,elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com,mobile.flightradar24.com,amdc.m.taobao.com, acs.m.taobao.com, gw.alicdn.com,home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com,acs-m.freshippo.com,
