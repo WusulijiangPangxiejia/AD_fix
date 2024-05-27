@@ -5,7 +5,7 @@
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/QuantumultX/rewrite/chongxie.txt
 #!tg-group=https://t.me/lanjieguanggao
-#!date=2024-05-18 09:20:00
+#!date=2024-05-27 17:20:00
 #!support=支持约511款APP/小程序
 #!remark=下方的所有规则都标注了对应的hostname，可能存在错误或者遗漏，欢迎反馈。对于无法/可选MITM的hostname都特别做了“如开启可自行添加主机名”提示，如果提示后面没有标注主机名则包含所有主机名，否则只包含提示语后面的主机名。
 
@@ -25,6 +25,17 @@
 ^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
 # > 盒马
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject
+# > 界面新闻
+^https?:\/\/img\.jiemian\.com\/ads\/ - reject
+# > 马蜂窝
+^https?:\/\/mapi\.mafengwo\.cn\/widget\/note\/get_widget_note - reject
+^https?:\/\/mapi\.mafengwo\.cn\/system\/push\/get_local_push_config - reject
+# > 平安好车主
+^https?:\/\/hcz-member\.pingan\.com\.cn\/micro-api\/homepage\/do\/app\/popbox\/getTopPopBox - reject
+# > 腾讯广告
+^https?:\/\/qt\.qq\.com\/lua\/mengyou\/get_splash_screen_info - reject
+^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview\.fcg - reject
+^https?:\/\/\w+\.beacon\.qq\.com - reject
 [Map Local]
 # > 彩云天气
 ^https?:\/\/api\.caiyunapp\.com\/v1\/activity data-type=text data="{}" status-code=200
@@ -52,6 +63,42 @@
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querysinglepage data-type=text data=" " status-code=200
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.fc\.recommend\.feedscommondservice data-type=text data="{}" status-code=200
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querytabfeedstream data-type=text data=" " status-code=200
+# > 两步路
+https?:\/\/helper\.2bulu\.com\/(greenPea\/queryTasks|proSpecial\/allData|saveSplashFrequencyStatistics|getPopInfo|getAppEntranceConfig|promote\/list|getSplash|outing\/reqFoundNewList|outing\/reqIndex) - reject
+# > 马蜂窝
+^https?:\/\/mapi\.mafengwo\.cn\/(travelguide\/)?ad data-type=text data=" " status-code=200
+^https?:\/\/mapi\.mafengwo\.cn\/system\/config\/mark_alert_config data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.mafengwo\.cn\/system\/config\/get_push_config data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.mafengwo\.cn\/system\/config\/get_alert_config data-type=text data="{}" status-code=200
+^https?:\/\/mapi\.mafengwo\.cn\/system\/update\/check_update data-type=text data="{}" status-code=200
+# > 平安好车主
+^https?:\/\/iobs\.pingan\.com\.cn\/download\/bweb-per-sf-prd\/bweb data-type=text data=" " status-code=200
+^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(YourSystemName|icore-apps-ad) data-type=text data=" " status-code=200
+# > 米家
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|myTab)\? data-type=text data="{}" status-code=200
+
+# > 腾讯广告
+^https?:\/\/btrace\.qq\.com data-type=text data=" " status-code=200
+^https?:\/\/api2\.helper\.qq\.com\/game\/buttons data-type=tiny-gif status-code=200
+^https?:\/\/lives\.l\.qq\.com\/livemsg\?sdtfrom= data-type=tiny-gif status-code=200
+^https?:\/\/imgcache\.qq\.com\/qqlive\/ data-type=tiny-gif status-code=200
+^https?:\/\/mtteve\.beacon\.qq\.com\/analytics data-type=tiny-gif status-code=200
+^https?:\/\/vv\.video\.qq\.com\/getvmind\? data-type=text data=" " status-code=200
+^https?:\/\/ssl\.kohsocialapp\.qq\.com:10001\/game\/buttons data-type=text data=" " status-code=200
+^https?:\/\/3gimg\.qq\.com\/tencentMapTouch\/app\/activity\/ data-type=text data=" " status-code=200
+^https?:\/\/3gimg\.qq\.com\/tencentMapTouch\/splash\/ data-type=text data=" " status-code=200
+^https?:\/\/y\.gtimg\.cn\/music\/.*?_Ad/\d+\.png data-type=tiny-gif status-code=200
+^https?:\/\/splashqqlive\.gtimg\.com\/website\/\d{6} data-type=tiny-gif status-code=200
+^https?:\/\/qzonestyle\.gtimg\.cn\/qzone\/biz\/gdt\/mob\/sdk\/ios\/v2\/ data-type=tiny-gif status-code=200
+^https?:\/\/discuz\.gtimg\.cn\/cloud\/scripts\/discuz_tips\.js data-type=tiny-gif status-code=200
+^https?:\/\/bla\.gtimg\.com\/qqlive\/\d{6}.+?\.png data-type=tiny-gif status-code=200
+^https?:\/\/mmgr\.gtimg\.com\/gjsmall\/qiantu\/upload\/ data-type=tiny-gif status-code=200
+^https?:\/\/mmgr\.gtimg\.com\/gjsmall\/qqpim\/public\/ios\/splash\/.+?\/\d{4}_\d{4} data-type=tiny-gif status-code=200
+^https?://bk\.bingo\.qq\.com/bk/crx/data/videoAd.*$ data-type=text data="{}" status-code=200
+^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview\.fcg\?posid= data-type=text data="{}" status-code=200
+# > 优酷
+# > 小红书
+
 [Script]
 # > 滴滴出行
 Didichuxing = type=http-response, pattern=^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds, script-path=https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js, requires-body=true, max-size=-1, timeout=60
@@ -71,5 +118,6 @@ Flightradar24 = type=http-response, pattern=^https?:\/\/mobile\.flightradar24\.c
 Umetrip_remove_ads = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Script/Umetrip/Umetrip_remove_ads.js, requires-body=true, max-size=-1, timeout=60
 # > 盒马
 freshippo = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(index|my)page, script-path=https://raw.githubusercontent.com/zirawell/Ad-Cleaner/main/Collection/js/freshippo.js, requires-body=true, max-size=-1, timeout=60
+
 [MITM]
-hostname = %APPEND% acs.m.taobao.com,wrapper.cyapi.cn, api.caiyunapp.com,img.meituan.net,ump.sz.creditcard.ecitic.com,gw.alicdn.com, img.alicdn.com,res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn,elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com,mobile.flightradar24.com,amdc.m.taobao.com, acs.m.taobao.com, gw.alicdn.com,home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com,acs-m.freshippo.com,
+hostname = %APPEND% acs.m.taobao.com,wrapper.cyapi.cn, api.caiyunapp.com,img.meituan.net,ump.sz.creditcard.ecitic.com,gw.alicdn.com, img.alicdn.com,res.xiaojukeji.com, common.diditaxi.com.cn, hd.xiaojukeji.com, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, conf.diditaxi.com.cn,elemecdn.com, fuss10.elemecdn.com, cube.elemecdn.com, www1.elecfans.com, nr-op.elemecdn.com,mobile.flightradar24.com,amdc.m.taobao.com, acs.m.taobao.com, gw.alicdn.com,home.umetrip.com, discardrp.umetrip.com, startup.umetrip.com,acs-m.freshippo.com,img.jiemian.com,helper.2bulu.com,mapi.mafengwo.cn, iobs.pingan.com.cn, hcz-member.pingan.com.cn,home.mi.com,btrace.qq.com, api2.helper.qq.com, *.beacon.qq.com, mi.gdt.qq.com, lives.l.qq.com, imgcache.qq.com, mtteve.beacon.qq.com, vv.video.qq.com, ssl.kohsocialapp.qq.com, qt.qq.com, 3gimg.qq.com, y.gtimg.cn, splashqqlive.gtimg.com, qzonestyle.gtimg.cn, discuz.gtimg.cn, bla.gtimg.com, mmgr.gtimg.com, bk.bingo.qq.com
