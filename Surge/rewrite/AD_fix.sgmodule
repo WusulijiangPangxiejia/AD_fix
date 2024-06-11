@@ -58,7 +58,7 @@
 # > 饿了么
 ^https?:\/\/fuss10\.elemecdn\.com\/.+?\.mp4 data-type=tiny-gif status-code=200
 # > 飞猪 + 阿里巴巴
-^http?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch data-type=text data="{}" status-code=200
+^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) data-type=text data="{}" status-code=200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/1\.0\?type=originaljson data-type=tiny-gif status-code=200
 # > 盒马
