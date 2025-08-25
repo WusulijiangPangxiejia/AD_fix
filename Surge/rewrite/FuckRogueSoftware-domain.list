@@ -2098,7 +2098,7 @@ DOMAIN-SUFFIX,campaign-himovie.hicloud.com,extended-matching
 DOMAIN-SUFFIX,campaign-music.hicloud.com,extended-matching
 DOMAIN-SUFFIX,campaigncs-dra.himovie.hicloud.com,extended-matching
 DOMAIN-SUFFIX,candid.zone,extended-matching
-DOMAIN-SUFFIX,capi.lkcoffee.com,extended-matching
+##DOMAIN-SUFFIX,capi.lkcoffee.com,extended-matching
 DOMAIN-SUFFIX,capi.voice.gcloud.qq.com,extended-matching
 DOMAIN-SUFFIX,capture.trackjs.com,extended-matching
 DOMAIN-SUFFIX,cards.twitter.com,extended-matching
