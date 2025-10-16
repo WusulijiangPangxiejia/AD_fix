@@ -1,4 +1,5 @@
 ##https://raw.githubusercontent.com/Elysian-Realme/FuGfConfig/refs/heads/main/ConfigFile/Surge/FuckRogueSoftware/ip.list
+##update:20251016
 IP-CIDR,1.94.113.76/32,no-resolve
 IP-CIDR,1.94.123.7/32,no-resolve
 IP-CIDR,101.124.19.122/32,no-resolve
@@ -68,6 +69,8 @@ IP-CIDR,186.76.76.200/32,no-resolve
 IP-CIDR,198.135.49.79/32,no-resolve
 IP-CIDR,203.107.1.0/24,no-resolve
 IP-CIDR,203.107.63.154/32,no-resolve
+IP-CIDR,203.119.204.0/24,no-resolve
+IP-CIDR,203.119.252.123/32,no-resolve
 IP-CIDR,218.61.162.92/32,no-resolve
 IP-CIDR,223.87.176.139/32,no-resolve
 IP-CIDR,223.87.176.176/32,no-resolve
